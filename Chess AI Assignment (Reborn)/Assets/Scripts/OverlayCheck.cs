@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class OverlayCheck : MonoBehaviour
 {
-    void OnMouseOver()
+    public GameObject killHighlight;
+    public GameObject moveHighlight;
+    public GameObject selectHighlight;
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {

@@ -147,9 +147,9 @@ public class MoveFactory
 
     void GetKingMoves()
     {
-        for (int x = -1; x <= 1; x++)
+        for (int x = -1; x <= 1; ++x)
         {
-            for (int y = -1; y <= 1; y++)
+            for (int y = -1; y <= 1; ++y)
             {
                 if (x == 0 && y == 0)
                 {
@@ -162,7 +162,7 @@ public class MoveFactory
     
     void GenerateMove(int limit, Vector2 direction)
     {
-        for (int i = 1; i < limit; i++)
+        for (int i = 1; i < limit; ++i)
         {
             Vector2 move = position + direction * i;
             if (IsOnBoard(move) && ContainsPiece(board.GetTileFromBoard(move)))
@@ -192,7 +192,6 @@ public class MoveFactory
             {
                 M.pieceKilled = M.secondPosition.CurrentPiece;
             }
-
             moves.Add(M);
         }
     }

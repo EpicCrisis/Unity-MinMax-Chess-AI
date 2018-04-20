@@ -189,7 +189,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dc34d16783322074bb0495622c6b2ef5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   type: 3
   team: 0
   chessSprite: {fileID: 21300000, guid: dc34d16783322074bb0495622c6b2ef5, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 0, y: 7}
 --- !u!1 &105875351
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 3, y: 1}
 --- !u!1 &144721742
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +393,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4b7910dc18cf09c46b8d7f25d73d2aad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   type: 1
   team: 1
   chessSprite: {fileID: 21300000, guid: 4b7910dc18cf09c46b8d7f25d73d2aad, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 5, y: 0}
 --- !u!1 &168069265
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,14 +443,14 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168069265}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &168069267
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168069265}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &168069268
 Camera:
   m_ObjectHideFlags: 0
@@ -480,8 +480,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -576,7 +576,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9a1694a9bdf5a98498123c77f814a37f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
   type: 5
   team: 0
   chessSprite: {fileID: 21300000, guid: 9a1694a9bdf5a98498123c77f814a37f, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 4, y: 7}
 --- !u!1 &298083454
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +678,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4fde11910dd27c644aeaa416211c236c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -703,7 +703,7 @@ MonoBehaviour:
   type: 2
   team: 0
   chessSprite: {fileID: 21300000, guid: 4fde11910dd27c644aeaa416211c236c, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 6, y: 7}
 --- !u!1 &317088089
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +780,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 1, y: 6}
 --- !u!1 &352887454
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dc34d16783322074bb0495622c6b2ef5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -907,7 +907,7 @@ MonoBehaviour:
   type: 3
   team: 0
   chessSprite: {fileID: 21300000, guid: dc34d16783322074bb0495622c6b2ef5, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 7, y: 7}
 --- !u!1 &404956489
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +984,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4782ef368c629a842a2d7c3d94ab4a32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   type: 1
   team: 0
   chessSprite: {fileID: 21300000, guid: 4782ef368c629a842a2d7c3d94ab4a32, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 5, y: 7}
 --- !u!1 &441021112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1086,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 4, y: 1}
 --- !u!1 &496663732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1188,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 6, y: 6}
 --- !u!1 &513918295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1334,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 5, y: 6}
 --- !u!1 &539326697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1436,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf0d16744a25af44782dee0122ef675c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   type: 4
   team: 1
   chessSprite: {fileID: 21300000, guid: bf0d16744a25af44782dee0122ef675c, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 3, y: 0}
 --- !u!1 &547135916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0952f23e783c17248a5c29a9777808f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   type: 2
   team: 1
   chessSprite: {fileID: 21300000, guid: 0952f23e783c17248a5c29a9777808f0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 6, y: 0}
 --- !u!1 &589162328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1640,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 3, y: 6}
 --- !u!1 &734366539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1742,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4b7910dc18cf09c46b8d7f25d73d2aad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1767,7 +1767,7 @@ MonoBehaviour:
   type: 1
   team: 1
   chessSprite: {fileID: 21300000, guid: 4b7910dc18cf09c46b8d7f25d73d2aad, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 2, y: 0}
 --- !u!1 &795928386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1844,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 5, y: 1}
 --- !u!1 &820924305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +1946,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1971,7 +1971,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 0, y: 1}
 --- !u!1 &956889366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2048,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2073,7 +2073,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 4, y: 6}
 --- !u!1 &993957859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 6, y: 1}
 --- !u!1 &1215411423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,27 +2185,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1215411426}
   - component: {fileID: 1215411425}
-  - component: {fileID: 1215411424}
   - component: {fileID: 1215411427}
   m_Layer: 0
   m_Name: ChessBoard
-  m_TagString: Untagged
+  m_TagString: ChessBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1215411424
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1215411423}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.672, y: 0.672, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1215411425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2239,10 +2226,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0978db9a2f653e94989f0ee2304c48f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.672, y: 0.672}
@@ -2276,6 +2263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7617499a1b321fe40986bb1e3f40b53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killHighlight: {fileID: 1364977740982922, guid: 77d1a66c47199e34fa77fdf036f4d4f2,
+    type: 2}
+  moveHighlight: {fileID: 1515765447890002, guid: fc2005b91d5b77b49a7eede2be621a3e,
+    type: 2}
+  selectHighlight: {fileID: 1547366131062548, guid: 3f8b9b9060c15f74182d1b1a5ae005dc,
+    type: 2}
 --- !u!1 &1233226034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2345,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2377,7 +2370,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 2, y: 1}
 --- !u!1 &1392654701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2447,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1494eb974a6e2754e94bc6bae78066a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2479,7 +2472,7 @@ MonoBehaviour:
   type: 2
   team: 1
   chessSprite: {fileID: 21300000, guid: 1494eb974a6e2754e94bc6bae78066a2, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 7, y: 0}
 --- !u!1 &1444115487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2481,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1444115488}
+  - component: {fileID: 1444115489}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -2508,6 +2502,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1444115489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444115487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835e818b00b0ec54d8526ffe5176c083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTurn: 1
 --- !u!1 &1559809769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,7 +2590,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2609,7 +2615,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 7, y: 6}
 --- !u!1 &1562423958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2692,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 26b94c2db00ad9b42a696ed04a54b408, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2711,7 +2717,7 @@ MonoBehaviour:
   type: 4
   team: 0
   chessSprite: {fileID: 21300000, guid: 26b94c2db00ad9b42a696ed04a54b408, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 3, y: 7}
 --- !u!1 &1633893815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,7 +2794,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2813,7 +2819,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 1, y: 1}
 --- !u!1 &1649146128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,7 +2871,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1494eb974a6e2754e94bc6bae78066a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2992,7 +2998,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8d06c788c7308ea4ba490d689b489d9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3017,7 +3023,7 @@ MonoBehaviour:
   type: 5
   team: 1
   chessSprite: {fileID: 21300000, guid: 8d06c788c7308ea4ba490d689b489d9f, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 4, y: 0}
 --- !u!1 &1764433416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,7 +3144,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3163,7 +3169,7 @@ MonoBehaviour:
   type: 0
   team: 1
   chessSprite: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 7, y: 1}
 --- !u!1 &1826155098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3246,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3265,7 +3271,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 0, y: 6}
 --- !u!1 &1831616595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,7 +3348,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3367,7 +3373,7 @@ MonoBehaviour:
   type: 0
   team: 0
   chessSprite: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 2, y: 6}
 --- !u!1 &1862120210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,7 +3450,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4fde11910dd27c644aeaa416211c236c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3469,7 +3475,7 @@ MonoBehaviour:
   type: 2
   team: 0
   chessSprite: {fileID: 21300000, guid: 4fde11910dd27c644aeaa416211c236c, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 1, y: 7}
 --- !u!1 &1869994712
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,7 +3552,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4782ef368c629a842a2d7c3d94ab4a32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3571,7 +3577,7 @@ MonoBehaviour:
   type: 1
   team: 0
   chessSprite: {fileID: 21300000, guid: 4782ef368c629a842a2d7c3d94ab4a32, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 2, y: 7}
 --- !u!1 &2014103981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +3654,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0952f23e783c17248a5c29a9777808f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3673,4 +3679,4 @@ MonoBehaviour:
   type: 2
   team: 1
   chessSprite: {fileID: 21300000, guid: 0952f23e783c17248a5c29a9777808f0, type: 3}
-  chessPosition: {x: 0, y: 0}
+  chessPosition: {x: 1, y: 0}

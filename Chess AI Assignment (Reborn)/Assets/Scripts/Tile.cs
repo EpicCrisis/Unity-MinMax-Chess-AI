@@ -33,7 +33,7 @@ public class Tile
 
         if (y == 0 || y == 1 || y == 6 || y == 7)
         {
-            currentPiece = GameObject.Find(x.ToString() + " " + y.ToString()).GetComponent<ChessPiece>();
+            currentPiece = GameObject.Find("[" + x.ToString() + "," + y.ToString() + "]").GetComponent<ChessPiece>();
         }
     }
 
