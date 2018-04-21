@@ -65,7 +65,9 @@ public class ChessPiece : MonoBehaviour
         
     void Start()
     {
+        transform.position = chessPosition;
         moveTo = transform.position;
+
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         overlay = GameObject.FindGameObjectWithTag("ChessBoard").GetComponent<OverlayCheck>();
     }
@@ -80,7 +82,7 @@ public class ChessPiece : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && team == PlayerTeam.WHITE && gameManager.playerTurn)
         {
             moves.Clear();
-            overlay.RemoveObjects("Highlight");
+            overlay.RemoveObject("Highlight");
 
             moves = factory.GetMoves(this, chessPosition);
             foreach (Move move in moves)

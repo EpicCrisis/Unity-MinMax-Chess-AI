@@ -7,16 +7,17 @@ public class OverlayCheck : MonoBehaviour
     public GameObject killHighlight;
     public GameObject moveHighlight;
     public GameObject selectHighlight;
+    public GameObject lastHighlight;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            RemoveObjects("Highlight");
+            RemoveObject("Highlight");
         }
     }
 
-    public void RemoveObjects(string text)
+    public void RemoveObject(string text)
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag(text);
         foreach (GameObject GO in objects)

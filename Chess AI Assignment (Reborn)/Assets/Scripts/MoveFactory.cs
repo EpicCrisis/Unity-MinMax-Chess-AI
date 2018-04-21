@@ -48,10 +48,10 @@ public class MoveFactory
         if (piece.Team == ChessPiece.PlayerTeam.BLACK)
         {
             int limit = piece.HasMoved ? 2 : 3;
-            GenerateMove(limit, new Vector2(0, 1));
+            GenerateMove(limit, new Vector2(0, -1));
 
-            Vector2 diagLeft = new Vector2(position.x - 1, position.y + 1);
-            Vector2 diagRight = new Vector2(position.x + 1, position.y + 1);
+            Vector2 diagLeft = new Vector2(position.x - 1, position.y - 1);
+            Vector2 diagRight = new Vector2(position.x + 1, position.y - 1);
             Tile dl = null;
             Tile dr = null;
             if (IsOnBoard(diagLeft))
@@ -75,10 +75,10 @@ public class MoveFactory
         else
         {
             int limit = piece.HasMoved ? 2 : 3;
-            GenerateMove(limit, new Vector2(0, -1));
+            GenerateMove(limit, new Vector2(0, 1));
 
-            Vector2 diagLeft = new Vector2(position.x - 1, position.y - 1);
-            Vector2 diagRight = new Vector2(position.x + 1, position.y - 1);
+            Vector2 diagLeft = new Vector2(position.x - 1, position.y + 1);
+            Vector2 diagRight = new Vector2(position.x + 1, position.y + 1);
             Tile dl = null;
             Tile dr = null;
             if (IsOnBoard(diagLeft))

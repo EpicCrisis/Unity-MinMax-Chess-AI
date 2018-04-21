@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Highlight
   - ChessBoard
+  - LastTag
   layers:
   - Default
   - TransparentFX

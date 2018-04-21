@@ -21,9 +21,9 @@ public class BoardManager
 
     public void SetupBoard()
     {
-        for (int y = 0; y < 8; y++)
+        for (int y = 0; y < 8; ++y)
         {
-            for (int x = 0; x < 8; x++)
+            for (int x = 0; x < 8; ++x)
             {
                 board[x, y] = new Tile(x, y);
             }

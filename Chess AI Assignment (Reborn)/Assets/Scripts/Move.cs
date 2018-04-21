@@ -8,5 +8,5 @@ public class Move
     public Tile secondPosition = null;
     public ChessPiece pieceMoved = null;
     public ChessPiece pieceKilled = null;
-    public int score = -100000000;
+    public int score = int.MinValue;
 }

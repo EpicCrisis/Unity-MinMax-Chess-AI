@@ -5,17 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     MiniMax minMax = new MiniMax();
+    UIManager uiManager;
     BoardManager board;
     OverlayCheck overlay;
 
     public bool playerTurn = true;
     bool kingDead = false;
+    float timer = 0.0f;
 
     void Start()
     {
         overlay = GameObject.FindGameObjectWithTag("ChessBoard").GetComponent<OverlayCheck>();
         board = BoardManager.Instance;
+        uiManager = UIManager.Instance;
+
         board.SetupBoard();
+
+        uiManager.PlayerTurnText(playerTurn);
     }
 
     private void Update()
@@ -24,10 +30,15 @@ public class GameManager : MonoBehaviour
         {
             //Make a restart button.
         }
-        if (!playerTurn)
+        if (!playerTurn && timer >= 1.0f)
         {
+            timer = 0.0f;
             Move move = minMax.GetMove();
             DoAIMove(move);
+        }
+        else if (!playerTurn)
+        {
+            timer += Time.deltaTime;
         }
     }
 
@@ -49,10 +60,13 @@ public class GameManager : MonoBehaviour
 
     public void SwapPieces(Move move)
     {
-        overlay.RemoveObjects("Highlight");
+        overlay.RemoveObject("Highlight");
+        overlay.RemoveObject("LastTag");
 
         Tile firstTile = move.firstPosition;
         Tile secondTile = move.secondPosition;
+
+        LastMoveTag(move);
 
         firstTile.CurrentPiece.MovePiece(new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y));
 
@@ -71,5 +85,17 @@ public class GameManager : MonoBehaviour
         secondTile.CurrentPiece.HasMoved = true;
 
         playerTurn = !playerTurn;
+        uiManager.PlayerTurnText(playerTurn);
+    }
+
+    void LastMoveTag(Move move)
+    {
+        GameObject GOfrom = Instantiate(overlay.lastHighlight);
+        GOfrom.transform.position = new Vector2(move.firstPosition.Position.x, move.firstPosition.Position.y);
+        GOfrom.transform.parent = transform;
+
+        GameObject GOto = Instantiate(overlay.lastHighlight);
+        GOto.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
+        GOto.transform.parent = transform;
     }
 }
