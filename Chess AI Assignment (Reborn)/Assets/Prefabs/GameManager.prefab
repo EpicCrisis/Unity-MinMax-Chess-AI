@@ -52,3 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 1
+  queen_White: {fileID: 21300000, guid: 26b94c2db00ad9b42a696ed04a54b408, type: 3}
+  queen_Black: {fileID: 21300000, guid: bf0d16744a25af44782dee0122ef675c, type: 3}

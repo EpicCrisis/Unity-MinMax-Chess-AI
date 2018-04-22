@@ -19,7 +19,7 @@ public class MiniMax
 
     int whiteScore = 0;
     int blackScore = 0;
-    int maxDepth = 4;
+    int maxDepth = 1;
 
     public Move GetMove()
     {

@@ -11,7 +11,13 @@ public class GameManager : MonoBehaviour
 
     public bool playerTurn = true;
     bool kingDead = false;
+    bool isWhiteWin = false;
     float timer = 0.0f;
+    int turnCount = 0;
+
+    [Header("===Queen Sprites===")]
+    public Sprite queen_White;
+    public Sprite queen_Black;
 
     void Start()
     {
@@ -21,6 +27,7 @@ public class GameManager : MonoBehaviour
 
         board.SetupBoard();
 
+        uiManager.TurnCount(turnCount);
         uiManager.PlayerTurnText(playerTurn);
     }
 
@@ -29,16 +36,23 @@ public class GameManager : MonoBehaviour
         if (kingDead)
         {
             //Make a restart button.
+            uiManager.GameRestart(kingDead, isWhiteWin);
         }
-        if (!playerTurn && timer >= 1.0f)
+        else if (!kingDead)
         {
-            timer = 0.0f;
-            Move move = minMax.GetMove();
-            DoAIMove(move);
-        }
-        else if (!playerTurn)
-        {
-            timer += Time.deltaTime;
+            if (!playerTurn && timer >= 1.0f)
+            {
+                timer = 0.0f;
+                Move move = minMax.GetMove();
+                DoAIMove(move);
+
+                //playerTurn = !playerTurn;
+                //uiManager.PlayerTurnText(playerTurn);
+            }
+            else if (!playerTurn)
+            {
+                timer += Time.deltaTime;
+            }
         }
     }
 
@@ -47,15 +61,7 @@ public class GameManager : MonoBehaviour
         Tile firstPosition = move.firstPosition;
         Tile secondPosition = move.secondPosition;
 
-        if (secondPosition.CurrentPiece && secondPosition.CurrentPiece.Type == ChessPiece.PieceType.KING)
-        {
-            SwapPieces(move);
-            kingDead = true;
-        }
-        else
-        {
-            SwapPieces(move);
-        }
+        SwapPieces(move);
     }
 
     public void SwapPieces(Move move)
@@ -70,22 +76,62 @@ public class GameManager : MonoBehaviour
 
         firstTile.CurrentPiece.MovePiece(new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y));
 
-        if (secondTile.CurrentPiece != null)
-        {
-            if (secondTile.CurrentPiece.Type == ChessPiece.PieceType.KING)
-            {
-                kingDead = true;
-            }
-            Destroy(secondTile.CurrentPiece.gameObject);
-        }
-        
+        ConvertPawn(firstTile, move);
+
+        CheckKingDeath(secondTile);
+
         secondTile.CurrentPiece = move.pieceMoved;
         firstTile.CurrentPiece = null;
         secondTile.CurrentPiece.chessPosition = secondTile.Position;
         secondTile.CurrentPiece.HasMoved = true;
 
+        turnCount++;
         playerTurn = !playerTurn;
+
+        uiManager.TurnCount(turnCount);
         uiManager.PlayerTurnText(playerTurn);
+    }
+
+    void CheckKingDeath(Tile _secondTile)
+    {
+        if (_secondTile.CurrentPiece != null)
+        {
+            if (_secondTile.CurrentPiece.Type == ChessPiece.PieceType.KING)
+            {
+                kingDead = true;
+                if (_secondTile.CurrentPiece.Team == ChessPiece.PlayerTeam.BLACK)
+                {
+                    isWhiteWin = true;
+                }
+                else if (_secondTile.CurrentPiece.Team == ChessPiece.PlayerTeam.WHITE)
+                {
+                    isWhiteWin = false;
+                }
+            }
+            Destroy(_secondTile.CurrentPiece.gameObject);
+        }
+    }
+
+    //Special rule, pawn becomes queen.
+    void ConvertPawn(Tile _firstTile, Move _move)
+    {
+        if (_firstTile.CurrentPiece.Type == ChessPiece.PieceType.PAWN)
+        {
+            if (_firstTile.CurrentPiece.Team == ChessPiece.PlayerTeam.WHITE)
+            {
+                if (_move.secondPosition.Position.y == 7)
+                {
+                    _firstTile.CurrentPiece.SetType((int)ChessPiece.PieceType.QUEEN, queen_White);
+                }
+            }
+            else if (_firstTile.CurrentPiece.Team == ChessPiece.PlayerTeam.BLACK)
+            {
+                if (_move.secondPosition.Position.y == 0)
+                {
+                    _firstTile.CurrentPiece.SetType((int)ChessPiece.PieceType.QUEEN, queen_Black);
+                }
+            }
+        }
     }
 
     void LastMoveTag(Move move)
@@ -97,5 +143,17 @@ public class GameManager : MonoBehaviour
         GameObject GOto = Instantiate(overlay.lastHighlight);
         GOto.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
         GOto.transform.parent = transform;
+    }
+
+    public bool KingDead
+    {
+        get
+        {
+            return kingDead;
+        }
+        set
+        {
+            kingDead = value;
+        }
     }
 }

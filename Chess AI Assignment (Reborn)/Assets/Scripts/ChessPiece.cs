@@ -42,13 +42,15 @@ public class ChessPiece : MonoBehaviour
 
     private GameManager gameManager;
     private OverlayCheck overlay;
+    private SpriteRenderer sRend;
 
-    public Sprite chessSprite = null;
     public Vector2 chessPosition;
     private Vector2 moveTo;
 
     private MoveFactory factory = new MoveFactory(BoardManager.Instance);
     private List<Move> moves = new List<Move>();
+
+    public List<Sprite> sprites = null;
 
     private bool hasMoved = false;
     public bool HasMoved
@@ -68,6 +70,7 @@ public class ChessPiece : MonoBehaviour
         transform.position = chessPosition;
         moveTo = transform.position;
 
+        sRend = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         overlay = GameObject.FindGameObjectWithTag("ChessBoard").GetComponent<OverlayCheck>();
     }
@@ -79,37 +82,46 @@ public class ChessPiece : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0) && team == PlayerTeam.WHITE && gameManager.playerTurn)
+        if (!gameManager.KingDead)
         {
-            moves.Clear();
-            overlay.RemoveObject("Highlight");
-
-            moves = factory.GetMoves(this, chessPosition);
-            foreach (Move move in moves)
+            if (Input.GetMouseButtonDown(0) && team == PlayerTeam.WHITE && gameManager.playerTurn)
             {
-                if (move.pieceKilled == null)
+                moves.Clear();
+                overlay.RemoveObject("Highlight");
+
+                moves = factory.GetMoves(this, chessPosition);
+                foreach (Move move in moves)
                 {
-                    GameObject GO = Instantiate(overlay.moveHighlight);
-                    GO.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
-                    GO.GetComponent<Container>().move = move;
-                    GO.transform.parent = transform;
+                    if (move.pieceKilled == null)
+                    {
+                        GameObject GO = Instantiate(overlay.moveHighlight);
+                        GO.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
+                        GO.GetComponent<Container>().move = move;
+                        GO.transform.parent = transform;
+                    }
+                    else if (move.pieceKilled != null)
+                    {
+                        GameObject GO = Instantiate(overlay.killHighlight);
+                        GO.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
+                        GO.GetComponent<Container>().move = move;
+                        GO.transform.parent = transform;
+                    }
                 }
-                else if (move.pieceKilled != null)
-                {
-                    GameObject GO = Instantiate(overlay.killHighlight);
-                    GO.transform.position = new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y);
-                    GO.GetComponent<Container>().move = move;
-                    GO.transform.parent = transform;
-                }
+                GameObject currentGO = Instantiate(overlay.selectHighlight);
+                currentGO.transform.position = transform.position;
+                currentGO.transform.parent = transform;
             }
-            GameObject currentGO = Instantiate(overlay.selectHighlight);
-            currentGO.transform.position = transform.position;
-            currentGO.transform.parent = transform;
         }
     }
 
     public void MovePiece(Vector2 position)
     {
         moveTo = position;
+    }
+
+    public void SetType(int _type, Sprite _sprite)
+    {
+        type = (PieceType)_type;
+        sRend.sprite = _sprite;
     }
 }
