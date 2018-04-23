@@ -76,7 +76,7 @@ public class MoveFactory
         {
             int limit = piece.HasMoved ? 2 : 3;
             GenerateMove(limit, new Vector2(0, 1));
-
+            
             Vector2 diagLeft = new Vector2(position.x - 1, position.y + 1);
             Vector2 diagRight = new Vector2(position.x + 1, position.y + 1);
             Tile dl = null;
@@ -100,6 +100,7 @@ public class MoveFactory
             }
         }
     }
+
 
     void GetRookMoves()
     {
@@ -179,7 +180,8 @@ public class MoveFactory
 
     void CheckAndStoreMove(Vector2 move)
     {
-        if (IsOnBoard(move) && (!ContainsPiece(board.GetTileFromBoard(move)) || IsEnemy(board.GetTileFromBoard(move))))
+        if (IsOnBoard(move) && (!ContainsPiece(board.GetTileFromBoard(move)) || 
+            IsEnemy(board.GetTileFromBoard(move))))
         {
             Move M = new Move
             {
@@ -192,6 +194,7 @@ public class MoveFactory
             {
                 M.pieceKilled = M.secondPosition.CurrentPiece;
             }
+
             moves.Add(M);
         }
     }

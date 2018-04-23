@@ -82,7 +82,7 @@ public class ChessPiece : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (!gameManager.KingDead)
+        if (!gameManager.KingDead && !gameManager.PlayerMoved)
         {
             if (Input.GetMouseButtonDown(0) && team == PlayerTeam.WHITE && gameManager.playerTurn)
             {

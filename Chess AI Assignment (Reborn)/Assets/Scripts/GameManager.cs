@@ -10,14 +10,64 @@ public class GameManager : MonoBehaviour
     OverlayCheck overlay;
 
     public bool playerTurn = true;
+    bool playerMoved = false;
+    public bool PlayerMoved
+    {
+        get
+        {
+            return playerMoved;
+        }
+        set
+        {
+            playerMoved = value;
+        }
+    }
     bool kingDead = false;
+    public bool KingDead
+    {
+        get
+        {
+            return kingDead;
+        }
+        set
+        {
+            kingDead = value;
+        }
+    }
     bool isWhiteWin = false;
     float timer = 0.0f;
     int turnCount = 0;
+    public int TurnCount
+    {
+        get
+        {
+            return turnCount;
+        }
+        set
+        {
+            turnCount = value;
+        }
+    }
+
+    Move tempMove = null;
+    public Move TempMove
+    {
+        get
+        {
+            return tempMove;
+        }
+        set
+        {
+            tempMove = value;
+        }
+    }
 
     [Header("===Queen Sprites===")]
     public Sprite queen_White;
     public Sprite queen_Black;
+    [Header("===Pawn Sprites===")]
+    public Sprite pawn_White;
+    public Sprite pawn_Black;
 
     void Start()
     {
@@ -27,6 +77,7 @@ public class GameManager : MonoBehaviour
 
         board.SetupBoard();
 
+        //uiManager.CheckMoved(playerMoved);
         uiManager.TurnCount(turnCount);
         uiManager.PlayerTurnText(playerTurn);
     }
@@ -43,11 +94,11 @@ public class GameManager : MonoBehaviour
             if (!playerTurn && timer >= 1.0f)
             {
                 timer = 0.0f;
-                Move move = minMax.GetMove();
-                DoAIMove(move);
+                //Move move = minMax.GetMove();
+                //DoAIMove(move);
 
-                //playerTurn = !playerTurn;
-                //uiManager.PlayerTurnText(playerTurn);
+                playerTurn = !playerTurn;
+                uiManager.PlayerTurnText(playerTurn);
             }
             else if (!playerTurn)
             {
@@ -62,6 +113,15 @@ public class GameManager : MonoBehaviour
         Tile secondPosition = move.secondPosition;
 
         SwapPieces(move);
+
+        if (!kingDead)
+        {
+            playerTurn = !playerTurn;
+            turnCount++;
+
+            uiManager.TurnCount(turnCount);
+            uiManager.PlayerTurnText(playerTurn);
+        }
     }
 
     public void SwapPieces(Move move)
@@ -74,25 +134,65 @@ public class GameManager : MonoBehaviour
 
         LastMoveTag(move);
 
-        firstTile.CurrentPiece.MovePiece(new Vector2(move.secondPosition.Position.x, move.secondPosition.Position.y));
+        firstTile.CurrentPiece.MovePiece(new Vector2(secondTile.Position.x, secondTile.Position.y));
 
         ConvertPawn(firstTile, move);
 
-        CheckKingDeath(secondTile);
+        CheckDeath(secondTile);
 
         secondTile.CurrentPiece = move.pieceMoved;
         firstTile.CurrentPiece = null;
         secondTile.CurrentPiece.chessPosition = secondTile.Position;
         secondTile.CurrentPiece.HasMoved = true;
 
-        turnCount++;
-        playerTurn = !playerTurn;
+        //UpdateTurn();
 
-        uiManager.TurnCount(turnCount);
-        uiManager.PlayerTurnText(playerTurn);
+        if (playerTurn)
+        {
+            playerMoved = true;
+        }
+
+        uiManager.CheckMoved(playerMoved, kingDead);
     }
 
-    void CheckKingDeath(Tile _secondTile)
+    public void UndoMove()
+    {
+        overlay.RemoveObject("LastTag");
+
+        Tile firstTile = tempMove.firstPosition;
+        Tile secondTile = tempMove.secondPosition;
+
+        secondTile.CurrentPiece.MovePiece(new Vector2(firstTile.Position.x, firstTile.Position.y));
+
+        //ReturnPawn(firstTile, tempMove);
+
+        SpriteRenderer sRend = secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
+        sRend.enabled = true;
+        //secondTile.CurrentPiece.gameObject.SetActive(true);
+
+        firstTile.CurrentPiece = tempMove.pieceMoved;
+        secondTile.CurrentPiece = null;
+        firstTile.CurrentPiece.chessPosition = firstTile.Position;
+        firstTile.CurrentPiece.HasMoved = false;
+
+        playerMoved = false;
+
+        uiManager.CheckMoved(playerMoved, kingDead);
+    }
+
+    private void UpdateTurn()
+    {
+        if (!kingDead)
+        {
+            playerTurn = !playerTurn;
+            turnCount++;
+
+            uiManager.TurnCount(turnCount);
+            uiManager.PlayerTurnText(playerTurn);
+        }
+    }
+
+    void CheckDeath(Tile _secondTile)
     {
         if (_secondTile.CurrentPiece != null)
         {
@@ -108,7 +208,10 @@ public class GameManager : MonoBehaviour
                     isWhiteWin = false;
                 }
             }
-            Destroy(_secondTile.CurrentPiece.gameObject);
+            SpriteRenderer sRend = _secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
+            sRend.enabled = false;
+            //_secondTile.CurrentPiece.gameObject.SetActive(false);
+            //Destroy(_secondTile.CurrentPiece.gameObject);
         }
     }
 
@@ -133,6 +236,27 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    //Inverse special rule for undo method. (requires reference of past tile)
+    void ReturnPawn(Tile _firstTile, Move _move)
+    {
+        if (_firstTile.CurrentPiece.Type == ChessPiece.PieceType.PAWN)
+        {
+            if (_firstTile.CurrentPiece.Team == ChessPiece.PlayerTeam.WHITE)
+            {
+                if (_move.secondPosition.Position.y == 7)
+                {
+                    _firstTile.CurrentPiece.SetType((int)ChessPiece.PieceType.PAWN, pawn_White);
+                }
+            }
+            else if (_firstTile.CurrentPiece.Team == ChessPiece.PlayerTeam.BLACK)
+            {
+                if (_move.secondPosition.Position.y == 7)
+                {
+                    _firstTile.CurrentPiece.SetType((int)ChessPiece.PieceType.PAWN, pawn_Black);
+                }
+            }
+        }
+    }
 
     void LastMoveTag(Move move)
     {
@@ -145,15 +269,14 @@ public class GameManager : MonoBehaviour
         GOto.transform.parent = transform;
     }
 
-    public bool KingDead
+    public void PlayerEndTurn()
     {
-        get
-        {
-            return kingDead;
-        }
-        set
-        {
-            kingDead = value;
-        }
+        playerMoved = false;
+        playerTurn = !playerTurn;
+        turnCount++;
+        
+        uiManager.CheckMoved(playerMoved, kingDead);
+        uiManager.TurnCount(turnCount);
+        uiManager.PlayerTurnText(playerTurn);
     }
 }

@@ -25,11 +25,11 @@ public class MiniMax
     {
         board = BoardManager.Instance;
         bestMove = CreateMove(board.GetTileFromBoard(new Vector2(0, 0)), board.GetTileFromBoard(new Vector2(0, 0)));
-        CalculateMinMix(maxDepth, -100000000, 1000000000, true);
+        CalculateMinMax(maxDepth, int.MinValue, int.MaxValue, true);
         return bestMove;
     }
 
-    int CalculateMinMix(int depth, int alpha, int beta, bool max)
+    int CalculateMinMax(int depth, int alpha, int beta, bool max)
     {
         GetBoardState();
 
@@ -47,7 +47,7 @@ public class MiniMax
 
                 DoFakeMove(move.firstPosition, move.secondPosition);
 
-                score = CalculateMinMix(depth - 1, alpha, beta, false);
+                score = CalculateMinMax(depth - 1, alpha, beta, false);
 
                 UndoFakeMove();
 
@@ -77,7 +77,7 @@ public class MiniMax
 
                 DoFakeMove(move.firstPosition, move.secondPosition);
 
-                score = CalculateMinMix(depth - 1, alpha, beta, true);
+                score = CalculateMinMax(depth - 1, alpha, beta, true);
 
                 UndoFakeMove();
 
@@ -203,10 +203,12 @@ public class MiniMax
 
     Move CreateMove(Tile tile, Tile move)
     {
-        Move tempMove = new Move();
-        tempMove.firstPosition = tile;
-        tempMove.pieceMoved = tile.CurrentPiece;
-        tempMove.secondPosition = move;
+        Move tempMove = new Move
+        {
+            firstPosition = tile,
+            pieceMoved = tile.CurrentPiece,
+            secondPosition = move
+        };
 
         if (move.CurrentPiece != null)
         {

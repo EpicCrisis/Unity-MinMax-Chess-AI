@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("===Texts===")]
     public Text TurnText;
     public Text WinnerText;
     public Text TurnCountText;
 
+    [Header("===Buttons===")]
+    public Button UndoButton;
+    public Button EndTurnButton;
     public Button RestartButton;
 
     public static UIManager Instance = null;
@@ -66,5 +70,19 @@ public class UIManager : MonoBehaviour
     public void ResetLevel(int _level)
     {
         SceneManager.LoadScene(_level);
+    }
+
+    public void CheckMoved(bool _playerMoved, bool _kingDead)
+    {
+        if (_playerMoved && !_kingDead)
+        {
+            UndoButton.gameObject.SetActive(true);
+            EndTurnButton.gameObject.SetActive(true);
+        }
+        else if (!_playerMoved)
+        {
+            UndoButton.gameObject.SetActive(false);
+            EndTurnButton.gameObject.SetActive(false);
+        }
     }
 }

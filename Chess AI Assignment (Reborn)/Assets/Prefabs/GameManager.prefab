@@ -54,3 +54,5 @@ MonoBehaviour:
   playerTurn: 1
   queen_White: {fileID: 21300000, guid: 26b94c2db00ad9b42a696ed04a54b408, type: 3}
   queen_Black: {fileID: 21300000, guid: bf0d16744a25af44782dee0122ef675c, type: 3}
+  pawn_White: {fileID: 21300000, guid: bd4f87ef563fb9b46ac8482674ea6362, type: 3}
+  pawn_Black: {fileID: 21300000, guid: 1bf7d50ef04d1d144993c3cb98bf68e0, type: 3}

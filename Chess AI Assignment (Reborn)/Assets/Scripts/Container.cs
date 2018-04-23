@@ -17,6 +17,7 @@ public class Container : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && move != null)
         {
             gameManager.SwapPieces(move);
+            gameManager.TempMove = move;
         }
     }
 }
