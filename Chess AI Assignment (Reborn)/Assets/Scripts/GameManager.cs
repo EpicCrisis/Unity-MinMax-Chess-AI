@@ -35,6 +35,17 @@ public class GameManager : MonoBehaviour
         }
     }
     bool isWhiteWin = false;
+    public bool IsWhiteWin
+    {
+        get
+        {
+            return isWhiteWin;
+        }
+        set
+        {
+            isWhiteWin = value;
+        }
+    }
     float timer = 0.0f;
     int turnCount = 0;
     public int TurnCount
@@ -69,6 +80,19 @@ public class GameManager : MonoBehaviour
     public Sprite pawn_White;
     public Sprite pawn_Black;
 
+    public static GameManager Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
     void Start()
     {
         overlay = GameObject.FindGameObjectWithTag("ChessBoard").GetComponent<OverlayCheck>();
@@ -94,11 +118,11 @@ public class GameManager : MonoBehaviour
             if (!playerTurn && timer >= 1.0f)
             {
                 timer = 0.0f;
-                //Move move = minMax.GetMove();
-                //DoAIMove(move);
+                Move move = minMax.GetMove();
+                DoAIMove(move);
 
-                playerTurn = !playerTurn;
-                uiManager.PlayerTurnText(playerTurn);
+                //playerTurn = !playerTurn;
+                //uiManager.PlayerTurnText(playerTurn);
             }
             else if (!playerTurn)
             {
@@ -114,14 +138,14 @@ public class GameManager : MonoBehaviour
 
         SwapPieces(move);
 
-        if (!kingDead)
-        {
-            playerTurn = !playerTurn;
-            turnCount++;
+        //if (!kingDead)
+        //{
+        //    playerTurn = !playerTurn;
+        //    turnCount++;
 
-            uiManager.TurnCount(turnCount);
-            uiManager.PlayerTurnText(playerTurn);
-        }
+        //    uiManager.TurnCount(turnCount);
+        //    uiManager.PlayerTurnText(playerTurn);
+        //}
     }
 
     public void SwapPieces(Move move)
@@ -145,14 +169,13 @@ public class GameManager : MonoBehaviour
         secondTile.CurrentPiece.chessPosition = secondTile.Position;
         secondTile.CurrentPiece.HasMoved = true;
 
-        //UpdateTurn();
+        UpdateTurn();
 
-        if (playerTurn)
-        {
-            playerMoved = true;
-        }
-
-        uiManager.CheckMoved(playerMoved, kingDead);
+        //if (playerTurn)
+        //{
+        //    playerMoved = true;
+        //}
+        //uiManager.CheckMoved(playerMoved, kingDead);
     }
 
     public void UndoMove()
@@ -166,8 +189,8 @@ public class GameManager : MonoBehaviour
 
         //ReturnPawn(firstTile, tempMove);
 
-        SpriteRenderer sRend = secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
-        sRend.enabled = true;
+        //SpriteRenderer sRend = secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
+        //sRend.enabled = true;
         //secondTile.CurrentPiece.gameObject.SetActive(true);
 
         firstTile.CurrentPiece = tempMove.pieceMoved;
@@ -208,10 +231,10 @@ public class GameManager : MonoBehaviour
                     isWhiteWin = false;
                 }
             }
-            SpriteRenderer sRend = _secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
-            sRend.enabled = false;
+            //SpriteRenderer sRend = _secondTile.CurrentPiece.GetComponent<SpriteRenderer>();
+            //sRend.enabled = false;
             //_secondTile.CurrentPiece.gameObject.SetActive(false);
-            //Destroy(_secondTile.CurrentPiece.gameObject);
+            Destroy(_secondTile.CurrentPiece.gameObject);
         }
     }
 
@@ -271,11 +294,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayerEndTurn()
     {
-        playerMoved = false;
+        //playerMoved = false;
         playerTurn = !playerTurn;
         turnCount++;
         
-        uiManager.CheckMoved(playerMoved, kingDead);
+        //uiManager.CheckMoved(playerMoved, kingDead);
         uiManager.TurnCount(turnCount);
         uiManager.PlayerTurnText(playerTurn);
     }

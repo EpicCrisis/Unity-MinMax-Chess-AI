@@ -5,6 +5,7 @@ using UnityEngine;
 public class MiniMax 
 {
     BoardManager board;
+    GameManager gameManager;
 
     List<Tile> tilesWithPieces = new List<Tile>();
     List<Tile> blackPieces = new List<Tile>();
@@ -19,11 +20,12 @@ public class MiniMax
 
     int whiteScore = 0;
     int blackScore = 0;
-    int maxDepth = 1;
+    int maxDepth = 3;
 
     public Move GetMove()
     {
         board = BoardManager.Instance;
+        gameManager = GameManager.Instance;
         bestMove = CreateMove(board.GetTileFromBoard(new Vector2(0, 0)), board.GetTileFromBoard(new Vector2(0, 0)));
         CalculateMinMax(maxDepth, int.MinValue, int.MaxValue, true);
         return bestMove;
@@ -39,7 +41,7 @@ public class MiniMax
         }
         if (max)
         {
-            int score = -10000000;
+            int score = int.MinValue;
             List<Move> allMoves = GetMoves(ChessPiece.PlayerTeam.BLACK);
             foreach (Move move in allMoves)
             {
@@ -54,7 +56,7 @@ public class MiniMax
                 if (score > alpha)
                 {
                     move.score = score;
-                    if (move.score > bestMove.score && depth == maxDepth)
+                    if (move.score > bestMove.score && depth >= maxDepth)
                     {
                         bestMove = move;
                     }
@@ -69,7 +71,7 @@ public class MiniMax
         }
         else
         {
-            int score = 10000000;
+            int score = int.MaxValue;
             List<Move> allMoves = GetMoves(ChessPiece.PlayerTeam.WHITE);
             foreach (Move move in allMoves)
             {
