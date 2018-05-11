@@ -1,2 +1,2 @@
-# Chess-AI-Reborn
+# Chess AI
 *A recreation of chess AI.
