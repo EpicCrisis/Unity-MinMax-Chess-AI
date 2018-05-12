@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniMax 
+public class MiniMax
 {
     BoardManager board;
     GameManager gameManager;
@@ -22,6 +22,20 @@ public class MiniMax
     int blackScore = 0;
     int maxDepth = 3;
     bool fakeLose = false;
+
+    public int MaxDepth
+    {
+        get
+        {
+            return maxDepth;
+        }
+        set
+        {
+            maxDepth = value;
+        }
+    }
+
+    public static MiniMax Instance = null;
 
     public MoveData GetMove()
     {

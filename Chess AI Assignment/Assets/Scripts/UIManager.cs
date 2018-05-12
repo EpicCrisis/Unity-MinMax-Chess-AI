@@ -6,17 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    GameManager gameManager;
+    MiniMax minMax;
+
     [Header("===Texts===")]
     public Text TurnText;
     public Text WinnerText;
     public Text TurnCountText;
+    public Text DifficultyText;
 
     [Header("===Buttons===")]
     public Button UndoButton;
     public Button EndTurnButton;
     public Button RestartButton;
 
+    [Header("===Sliders===")]
+    public Slider DifficultySlider;
+
     public static UIManager Instance = null;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +35,14 @@ public class UIManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        gameManager = GameManager.Instance;
+        minMax = gameManager.MinMax;
+    }
+
+    public void Start()
+    {
+        ChangeDepth();
     }
 
     public void PlayerTurnText(bool _playerTurn)
@@ -84,5 +100,19 @@ public class UIManager : MonoBehaviour
             UndoButton.gameObject.SetActive(false);
             EndTurnButton.gameObject.SetActive(false);
         }
+    }
+
+    public void ChangeDepth()
+    {
+        minMax.MaxDepth = (int)DifficultySlider.value;
+
+        DepthNumber();
+
+        Debug.Log("MaxDepth : " + minMax.MaxDepth);
+    }
+
+    public void DepthNumber()
+    {
+        DifficultyText.text = "Difficulty: " + minMax.MaxDepth.ToString();
     }
 }

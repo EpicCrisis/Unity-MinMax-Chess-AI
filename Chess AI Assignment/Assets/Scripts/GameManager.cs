@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    MiniMax minMax = new MiniMax();
+    private MiniMax minMax = new MiniMax();
     UIManager uiManager;
     BoardManager board;
     OverlayCheck overlay;
@@ -73,6 +73,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public MiniMax MinMax
+    {
+        get
+        {
+            return minMax;
+        }
+
+        set
+        {
+            minMax = value;
+        }
+    }
+
     [Header("===Queen Sprites===")]
     public Sprite queen_White;
     public Sprite queen_Black;
@@ -118,7 +131,7 @@ public class GameManager : MonoBehaviour
             if (!playerTurn && timer >= 1.0f)
             {
                 timer = 0.0f;
-                MoveData move = minMax.GetMove();
+                MoveData move = MinMax.GetMove();
                 DoAIMove(move);
 
                 //playerTurn = !playerTurn;
