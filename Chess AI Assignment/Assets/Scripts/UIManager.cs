@@ -115,4 +115,9 @@ public class UIManager : MonoBehaviour
     {
         DifficultyText.text = "Difficulty: " + minMax.MaxDepth.ToString();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
